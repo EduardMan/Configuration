@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean
+            id="connector"
+            class="tech.itparklessons.configuration.config.xml.XMLSQLiteConnector"
+            c:login="${login}"
+            c:password="${password}"
+            c:ds-ref="dataSource"
+    />
+
+    <bean
+            id="dataSource"
+            class="org.sqlite.SQLiteDataSource"
+    />
+
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="location" value="db.properties"/>
+    </bean>
+
+</beans>
