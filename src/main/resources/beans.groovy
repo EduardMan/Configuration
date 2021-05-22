@@ -1,4 +1,3 @@
-import org.springframework.core.io.ClassPathResource
 import tech.itparklessons.configuration.config.groovy.DataSource
 import tech.itparklessons.configuration.config.groovy.GroovySQLiteConnector
 
