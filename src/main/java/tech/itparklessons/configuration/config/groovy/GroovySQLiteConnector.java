@@ -16,5 +16,5 @@ import javax.sql.DataSource;
 public class GroovySQLiteConnector {
     private final String login;
     private final String password;
-//    private DataSource ds;
+    private final DataSource ds;
 }

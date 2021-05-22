@@ -1,4 +1,5 @@
 import org.springframework.core.io.ClassPathResource
+import tech.itparklessons.configuration.config.groovy.DataSource
 import tech.itparklessons.configuration.config.groovy.GroovySQLiteConnector
 
 Properties properties = new Properties()
@@ -7,9 +8,7 @@ propertiesFile.withInputStream {
     properties.load(it)
 }
 
-//def url = new ClassPathResource('db.properties').URL;
-//def config = new ConfigSlurper().parse(url);
-
 beans {
-    connector(GroovySQLiteConnector, properties.login, properties.password)
+    dataSource(DataSource)
+    connector(GroovySQLiteConnector, properties.login, properties.password, dataSource)
 }

@@ -13,7 +13,5 @@ import javax.sql.DataSource;
 public class ProgrammaticSQLiteConnector {
     private final String login;
     private final String password;
-
-//    @Autowired
     private final DataSource ds;
 }
