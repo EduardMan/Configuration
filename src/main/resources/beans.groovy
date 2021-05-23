@@ -1,13 +1,12 @@
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer
 import tech.itparklessons.configuration.config.groovy.DataSource
 import tech.itparklessons.configuration.config.groovy.GroovySQLiteConnector
 
-Properties properties = new Properties()
-File propertiesFile = new File(getClass().getResource('/db.properties').toURI())
-propertiesFile.withInputStream {
-    properties.load(it)
-}
-
 beans {
+    propertyPlaceholderConfigurer PropertySourcesPlaceholderConfigurer, {
+        location = 'classpath:db.properties'
+    }
+
     dataSource(DataSource)
-    connector(GroovySQLiteConnector, properties.login, properties.password, dataSource)
+    connector(GroovySQLiteConnector, '${login}', '${password}', dataSource)
 }
