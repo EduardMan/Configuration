@@ -12,6 +12,7 @@ import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericGroovyApplicationContext;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
+import tech.itparklessons.configuration.config.annotation.AnnotationConfiguration;
 import tech.itparklessons.configuration.config.annotation.AnnotationSQLiteConnector;
 import tech.itparklessons.configuration.config.groovy.GroovySQLiteConnector;
 import tech.itparklessons.configuration.config.java.JavaSQLiteConnector;
@@ -38,7 +39,7 @@ class ConfigurationTest {
 
     @Test
     void annotationConfig() {
-        val context = new AnnotationConfigApplicationContext("tech.itparklessons.configuration.config.annotation");
+        val context = new AnnotationConfigApplicationContext(AnnotationConfiguration.class);
         val bean = context.getBean("connector", AnnotationSQLiteConnector.class);
 
         assertNotNull(bean.getDs());
